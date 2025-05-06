@@ -93,7 +93,6 @@ const userSlice = createSlice({
     extraReducers: (builder: ActionReducerMapBuilder<UserState>) => {
         builder
             .addCase(loginUser.fulfilled, (state, action) => {
-                console.log(action.payload, 'test')
                 state.token = action.payload.token
                 localStorage.setItem('token', action.payload.token)
                 state.isLogged = true

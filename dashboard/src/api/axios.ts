@@ -25,7 +25,6 @@ axiosInstance.interceptors.response.use((response) => {
     const status = error.response?.status
     if (status === 401) {
         localStorage.removeItem('token')
-        window.location.href = '/auth'
     }
 })
 export default axiosInstance;

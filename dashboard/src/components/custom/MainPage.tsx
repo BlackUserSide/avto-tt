@@ -3,7 +3,7 @@ import {ParkingService} from "./ParkingService.tsx";
 import {EmergencyService} from "./EmergencyService.tsx";
 
 export const MainPage = () => {
-    const [selectType, setSelectType] = useState<'parking' | 'emergency'>('emergency')
+    const [selectType, setSelectType] = useState<'parking' | 'emergency'>('parking')
     return (
         <>
             <div className="main-page-container">
