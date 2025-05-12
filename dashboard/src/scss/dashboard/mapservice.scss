@@ -24,6 +24,109 @@
 .container-map-wrapper {
   position: relative;
 
+  .timer-finish {
+    span {
+      font-family: Manrope;
+      font-size: 50.775px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 150%; /* 92.662px */
+      letter-spacing: -1.853px;
+    }
+  }
+
+  .container-emergency-services {
+    .container-service-wrapper {
+      max-height: 300px;
+      overflow: auto;
+
+      .item-service {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #F3F5F9;
+        padding: 10px 26px;
+        margin-bottom: 5px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: .3s ease background;
+
+        &.active-service {
+          background: #FECB21;
+        }
+
+        .container-image-content-service {
+          display: flex;
+          gap: 30px;
+          align-items: center;
+
+          p {
+            color: #242121;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            margin-bottom: 15px;
+          }
+
+          span {
+            color: #575757;
+            font-size: 14.232px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+          }
+
+
+          img {
+            max-width: 100px;
+            width: 100%;
+            max-height: 100px;
+            height: auto;
+          }
+        }
+      }
+    }
+
+    .main-btn-emergency {
+      max-width: 100%;
+      width: 100%;
+      border-radius: 10px;
+      background: #182F53;
+      color: #fff;
+      height: 48px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .input-container {
+      position: relative;
+
+      button {
+        position: absolute;
+        background: #E5E5E5;
+        border: none;
+        border-right: 10px;
+        width: 180px;
+        top: 0;
+        right: 0;
+        height: 51px;
+        cursor: pointer;
+        z-index: 1;
+
+        span {
+          color: #575757;
+          font-size: 16.453px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 150%; /* 32.179px */
+          letter-spacing: -0.644px;
+
+        }
+      }
+    }
+  }
+
   .content-table {
     margin-top: 20px;
   }
@@ -121,7 +224,7 @@
   }
 
   .payment-container {
-    width: 450px;
+    width: 570px;
   }
 
   .add-new-card-container {
@@ -639,7 +742,7 @@
 }
 
 .react-calendar {
-  max-width: 100% !important;
+  max-width: 420px !important;
   width: 100% !important;
   height: 297px !important;
   border-radius: 5px;

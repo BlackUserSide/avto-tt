@@ -1552,8 +1552,8 @@ export const ParkingService = () => {
                             </div>
                             <div className="content-container">
                                 <p><span>Place of arrival:</span> Citi Centre</p>
-                                <p><span>From:</span> {selectTime}</p>
-                                <p><span>To:</span> {selectToTime}</p>
+                                <p><span>From:</span> {selectTime?.value ? selectTime.value : ''}</p>
+                                <p><span>To:</span> {selectToTime?.value ? selectToTime.value : ''}</p>
                             </div>
 
                         </div>
@@ -1586,7 +1586,7 @@ export const ParkingService = () => {
                                              fill="none">
                                             <path
                                                 d="M17.5014 1H1.61116C1.27311 1 1 1.27311 1 1.61116V4.66697H18.1125V1.61116C18.1125 1.27311 17.8394 1 17.5014 1ZM1 13.8344C1 14.1724 1.27311 14.4455 1.61116 14.4455H17.5014C17.8394 14.4455 18.1125 14.1724 18.1125 13.8344V6.34766H1V13.8344ZM12.0582 10.3202C12.0582 10.2362 12.127 10.1674 12.211 10.1674H15.3623C15.4463 10.1674 15.5151 10.2362 15.5151 10.3202V11.6953C15.5151 11.7794 15.4463 11.8481 15.3623 11.8481H12.211C12.127 11.8481 12.0582 11.7794 12.0582 11.6953V10.3202Z"
-                                                fill="#F3F5F9" stroke="black" stroke-width="0.870513"/>
+                                                fill="#F3F5F9" stroke="black" strokeWidth="0.870513"/>
                                         </svg>
                                         <p>Registered cards</p>
                                     </div>
@@ -1597,8 +1597,8 @@ export const ParkingService = () => {
                                                      xmlns="http://www.w3.org/2000/svg">
                                                     <circle cx="12" cy="12" r="12" fill="#1BB66E"/>
                                                     <path d="M16.7993 9L10.1993 15.6L7.19922 12.6" stroke="white"
-                                                          stroke-width="3" stroke-linecap="round"
-                                                          stroke-linejoin="round"/>
+                                                          strokeWidth="3" strokeLinecap="round"
+                                                          strokeLinejoin="round"/>
                                                 </svg>
                                                 <p>BankName</p>
                                                 <p>CVV</p>
@@ -1610,7 +1610,7 @@ export const ParkingService = () => {
                                                      viewBox="0 0 19 15" fill="none">
                                                     <path
                                                         d="M17.5014 1H1.61116C1.27311 1 1 1.27311 1 1.61116V4.66697H18.1125V1.61116C18.1125 1.27311 17.8394 1 17.5014 1ZM1 13.8344C1 14.1724 1.27311 14.4455 1.61116 14.4455H17.5014C17.8394 14.4455 18.1125 14.1724 18.1125 13.8344V6.34766H1V13.8344ZM12.0582 10.3202C12.0582 10.2362 12.127 10.1674 12.211 10.1674H15.3623C15.4463 10.1674 15.5151 10.2362 15.5151 10.3202V11.6953C15.5151 11.7794 15.4463 11.8481 15.3623 11.8481H12.211C12.127 11.8481 12.0582 11.7794 12.0582 11.6953V10.3202Z"
-                                                        fill="#F3F5F9" stroke="black" stroke-width="0.870513"/>
+                                                        fill="#F3F5F9" stroke="black" strokeWidth="0.870513"/>
                                                 </svg>
                                                 <p>MonoBank</p>
                                                 <p>123</p>
@@ -1660,7 +1660,7 @@ export const ParkingService = () => {
                                         <p>Total: 35,00 ₴</p>
                                     </div>
                                 </div>
-                                <button>
+                                <button onClick={() => handlerStep('next')}>
                                     <span>Apple Pay</span>
                                 </button>
                             </div>
