@@ -7,9 +7,15 @@ import Select, {components} from 'react-select';
 import {dateTimeOptions} from "../../utils/dateTime.ts";
 import {Timer} from "./Timer.tsx";
 import {useNavigate} from "react-router-dom";
-
+import Dropzone from 'react-dropzone'
 export const ParkingService = () => {
     const [selectType, setSelectType] = useState<'parking' | 'vehicle'>('parking');
+    const [files, setFiles] = useState<File | null>(null);
+    const [notification, setNotification] = useState<boolean>(false);
+    const handleDrop = (acceptedFiles: File[]) => {
+        setFiles(acceptedFiles[0])
+    };
+
     const [date, setDate] = useState<any>(null)
     const [openDatePicker, setOpenDatePicker] = useState<boolean>(false)
     const [selectTime, setSelectTime] = useState<any>()
@@ -18,7 +24,9 @@ export const ParkingService = () => {
     const [step, setStep] = useState<number>(1)
     const [selectSlot, setSelectSlot] = useState<number | null>(null)
     const navigate = useNavigate()
-
+    const handleSecondClick = () => {
+        setFiles(null)
+    }
     const CustomPlaceholder = (props: any) => (
         <components.Placeholder {...props}>
     <span style={{display: 'flex', alignItems: 'center', gap: 6}}>
@@ -1682,7 +1690,47 @@ export const ParkingService = () => {
                         <button onClick={() => navigate('/profile')}>Go to personal cabinet</button>
                     </div> : null}
                 </div> : null}
+                {selectType === 'vehicle' ? <div className={'container-vehicle'}>
+                    <div className="container-title">
+                        <h3 className="h3">Report blocked vehicle</h3>
+                        <p className={`p-title`}>Upload a photo of a blocked car</p>
+                    </div>
+                    <div className="drop-zone-container">
+                        {!files ? <Dropzone accept={{'image/*': []}} maxFiles={1}
+                                           onDrop={acceptedFiles => handleDrop(acceptedFiles)}>
+                            {({getRootProps, getInputProps}) => (
+                                <div {...getRootProps()} className={'dropzone-container'}>
+                                    <input {...getInputProps()} />
+                                    <div className="container-content-dropzone">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="150" height="133"
+                                             viewBox="0 0 150 133" fill="none">
+                                            <path
+                                                d="M8 50.252C8 41.1507 8 36.6001 9.77123 33.1239C11.3292 30.0661 13.8153 27.58 16.8731 26.022C20.3493 24.2508 24.9 24.2508 34.0013 24.2508H48.627L53.1591 15.1866C54.4634 12.5778 55.1156 11.2734 56.0886 10.3205C56.9491 9.47773 57.9861 8.83681 59.1247 8.44409C60.4122 8 61.8705 8 64.7872 8H85.2818C88.1985 8 89.6568 8 90.9443 8.44409C92.0829 8.83681 93.1199 9.47773 93.9803 10.3205C94.9533 11.2734 95.6055 12.5778 96.9099 15.1866L101.442 24.2508H116.068C125.169 24.2508 129.72 24.2508 133.196 26.022C136.254 27.58 138.74 30.0661 140.298 33.1239C142.069 36.6001 142.069 41.1507 142.069 50.252V99.8169C142.069 108.918 142.069 113.469 140.298 116.945C138.74 120.003 136.254 122.489 133.196 124.047C129.72 125.818 125.169 125.818 116.068 125.818H34.0013C24.9 125.818 20.3493 125.818 16.8731 124.047C13.8153 122.489 11.3292 120.003 9.77123 116.945C8 113.469 8 108.918 8 99.8169V50.252Z"
+                                                stroke="#9FA3AE" stroke-width="14.3645" stroke-linejoin="round"/>
+                                            <path
+                                                d="M101.442 75.0345C101.442 89.619 89.619 101.442 75.0345 101.442C60.45 101.442 48.627 89.619 48.627 75.0345C48.627 60.45 60.45 48.627 75.0345 48.627C89.619 48.627 101.442 60.45 101.442 75.0345Z"
+                                                stroke="#9FA3AE" stroke-width="14.3645" stroke-linejoin="round"/>
+                                        </svg>
+                                        <p>Click to upload the photo</p>
+                                    </div>
+                                </div>
+                            )}
+                        </Dropzone> : null}
 
+                        {files ? <div className={'container-image-file'} onClick={handleSecondClick}>
+                            <img  src={URL.createObjectURL(files)}
+                                  alt={files.name} />
+                        </div> : null}
+                        <button className="create-req-for-user" onClick={() => setNotification(true)}>
+                           <span>
+                                Report blocked vehicle
+                           </span>
+                        </button>
+                    </div>
+                    {notification ? <div className="pop-up-notyf">
+
+                    </div> : null}
+                </div> : null}
             </div>
         </>
     )
