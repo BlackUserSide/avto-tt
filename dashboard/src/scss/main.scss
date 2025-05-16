@@ -20,7 +20,8 @@
 // Emergency Page
 @use "./auth/forgotpass.scss"; // ForgotPass Page
 @use "./dashboard/mapservice.scss"; // Map Scss Page
-@use "dashboard/vehicle"; // Vehicle Scss Page
+@use "./dashboard/vehicle"; // Vehicle Scss Page
+@use "./dashboard/tenantemergency.scss"; // Tenant Emergency
 body {
   margin: 0;
   min-height: 100vh;
