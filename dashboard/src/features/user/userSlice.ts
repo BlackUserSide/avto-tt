@@ -33,7 +33,7 @@ export const uploadPhotoProfile = createAsyncThunk(
         try {
             const formData = new FormData()
             formData.append('file', file)
-            const res = await axios.post('http://localhost:3002' + '/user/photo', formData, {
+            const res = await axios.post('http://3.79.9.220/api' + '/user/photo', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     Authorization: `Bearer ${localStorage.getItem('token')}`
