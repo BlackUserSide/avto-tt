@@ -28,7 +28,6 @@ export class UserController {
         @Req() req: any
     ) {
         const userId = req.user.id
-        console.log(file)
         const avatarUrl = `/uploads/photo/${file.filename}`
 
         const updatedUser = await this.userService.updateAvatar(userId, avatarUrl)
