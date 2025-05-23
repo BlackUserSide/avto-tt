@@ -14,7 +14,6 @@ export class NotificationService {
         let user_id: any = dto.userId
         if (!user_id) {
             const user = await this.userModel.findOne({email: dto.email});
-            console.log(user)
             if (!user) throw new NotFoundException('Not found user');
             user_id = user._id
         }
